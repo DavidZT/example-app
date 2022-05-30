@@ -1,0 +1,100 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-list-header>
+            <ion-label>Rellena todos los campos</ion-label>
+        </ion-list-header>
+
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+          <ion-item>
+            <ion-label position="floating">Nombre(s):</ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.name.errors?.required" 
+            color="danger" 
+            class="ion-padding">
+            El nombre es un campo requerido
+          </ion.label>
+
+          <ion.label *ngIf="isSubmitted && errControl?.name?.errors?.minlength" 
+          color="danger" 
+          class="ion-padding">
+          El nombre debe tener al menos 5 caracteres
+        </ion.label>
+
+          <ion-item>
+            <ion-label position="floating">Apellidos:</ion-label>
+            <ion-input formControlName="lastname"></ion-input>
+          </ion-item>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.lastname.errors?.required" 
+            color="danger" 
+            class="ion-padding">
+            El nombre es un campo requerido
+          </ion.label>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.lastname.errors?.minlength" 
+            color="danger" 
+            class="ion-padding">
+            El apellido debe tener al menos 5 caracteres
+          </ion.label>
+
+          <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+          </ion-item>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.email.errors?.required" 
+            color="danger" 
+            class="ion-padding">
+            El correo electronico es un campo requerido
+          </ion.label>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.email.errors?.pattern" 
+            color="danger" 
+            class="ion-padding">
+            El correo electronico no es valido
+          </ion.label>
+
+          <ion-item>
+            <ion-label position="floating">Edad:</ion-label>
+            <ion-input formControlName="age" type="number"></ion-input>
+          </ion-item>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.age.errors?.required" 
+            color="danger" 
+            class="ion-padding">
+            La edad es un campo requerido
+          </ion.label>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.age.errors?.pattern" 
+            color="danger" 
+            class="ion-padding">
+            Soló se admiten números en este campo
+          </ion.label>
+
+          <ion-item>
+            <ion-label position="floating">Teléfono:</ion-label>
+            <ion-input formControlName="mobile" type="tel"></ion-input>
+          </ion-item>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.mobile.errors?.required" 
+            color="danger" 
+            class="ion-padding">
+            El edad es un campo requerido
+          </ion.label>
+
+          <ion.label *ngIf="isSubmitted && errorControl?.mobile.errors?.pattern" 
+            color="danger" 
+            class="ion-padding">
+            Soló se admiten números en este campo
+          </ion.label>
+
+          <ion-button type="submit" expand="block">Agregar Contacto</ion-button>
+        </form>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
